@@ -51,6 +51,8 @@
         <li>Watchdog and reset
             <ul>
                 <li>Can the watchdog be bypassed?</li>
+                <li>Can it be overruled?</li>
+                <li>Can it be emulated?</li>
             </ul>
         </li>
         <li>Power
@@ -62,6 +64,7 @@
                 <li>Which current draws are needed?</li>
                 <li>How is power distributed?</li>
                 <li>Is there a shared power supply?</li>
+                <li>Is the ground connection made first in hot-plugging connectors?</li>
             </ul>
         </li>
         <li>System characteristics
@@ -99,7 +102,11 @@
         <li>Are mating connectors on different boards matched in pin-out?</li>
         <li>Have necessary inputs been ESD protected? #ESD</li>
         <li>Do all components have reference and value?</li>
-        <li>Has special PCB requirements been noted? #schematic #pcb #notes</li>
+        <li>Has special PCB requirements been noted? #schematic #pcb #notes
+            <ul>
+                <li>Impedance?</li>
+            </ul>
+        </li>
         <li>Are polarized components protected/ensured against from reverse voltage?</li>
         <li>Pull-up on all open-collector?</li>
         <li>Are resistors operating within their specified voltage range?</li>
@@ -113,6 +120,7 @@
         <li>Sheets
             <ul>
                 <li>Sheets are consistently sized</li>
+                <li>Readable when printed</li>
                 <li>Logical layout should through top-bottom, left-right</li>
                 <li>Header/block
                     <ul>
@@ -405,11 +413,16 @@
 </li>
 <li>Safety
     <ul>
-        <li>Fuse and circuit breakers are appropriately sized</li>
-        <li>Fuse size and type marked on PCB</li>
-        <li>Fuse can be removed when board is assembled</li>
-        <li>Fuse can be removed when devices is assembled</li>
-        <li>Storage for spare fuse?</li>
+        <li>Fuses
+            <ul>
+                <li>Appropriately sized?</li>
+                <li>Fast enough for the load?</li>
+                <li>Size and type marked on PCB</li>
+                <li>Replaceable when board is assembled</li>
+                <li>Replaceable when devices is assembled</li>
+                <li>Storage for spare fuse?</li>
+            </ul>
+        </li>
         <li>Avoid signal and power in same connector
             <div class="explanation">Wide Band Laboratory Fire, Fermi National Accelerator Laboratory, 1987.<br />A misjoined connector resulted in several amps being drawn through cables rated for only 1&nbsp;A. A fire started from this. Source: <a href="http://www.tvsfpe.org/_images/zamirowski_&_tess_-_wide_band_fire.pdf">Wide Band Laboratory Fire</a></div>
         </li>
