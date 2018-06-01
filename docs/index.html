@@ -29,37 +29,32 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 <ol>
 <li>Procedure
 	<ul>
-		<li>Is there a method of versions/revisions?
+		<li>Is there a method of tracking versions/revisions?
 			<ul>
 				<li>For system</li>
-				<li>For schematic</li>
+				<li>For schematics</li>
 				<li>For PCBs</li>
 				<li>For software</li>
 			</ul>
 		</li>
-		<li>Is software source control used? (Git, SVN etc.)</li>
+		<li>Is source version control used? (Git, SVN etc.) #software</li>
 		<li>Is offsite backup used?</li>
-		<li>Is automated software testing used?</li>
 	</ul>
 </li>
 <li>System
 	<ul>
-		<li>Are there a status LEDs
+		<li>What should have ESD protection? #ESD</li>
+		<li>Are amplifier circuits stable?</li>
+		<li>Are oscillators stable?</li>
+		<li>Are there status LEDs
 			<ul>
 				<li>Power</li>
 				<li>Programmable</li>
 			</ul>
 		</li>
-		<li>Are voltage ratings of components sufficient? #system #schematic #electrical</li>
-		<li>Is there sufficient bulk capacitance?</li>
-		<li>Have necessary test points been identified?</li>
-		<li>What should have ESD protection? #system #ESD</li>
-		<li>Are amplified circuits stable?</li>
-		<li>Are oscillators stable?</li>
-		<li>Should there be in-circuit testing?</li>
 		<li>Subsystems
 			<ul>
-				<li>Multiple boards needed?</li>
+				<li>Are multiple boards needed?</li>
 				<li>How are subsystems connected?</li>
 				<li>Have harnesses/wiring/connectors been identified?
 					<ul>
@@ -67,32 +62,39 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 						<li>What is the max current draw?</li>
 					</ul>
 				</li>
+				<li>Should any subsystems be default off? #power</li>
 			</ul>
 		</li>
 		<li>Watchdog and reset
 			<ul>
-				<li>Can the watchdog be bypassed?</li>
-				<li>Can it be overruled?</li>
-				<li>Can it be emulated?</li>
-			</ul>
-		</li>
-		<li>Power
-			<ul>
-				<li>Is power up well defined?</li>
-				<li>Should any subsystems be default off?</li>
-				<li>Should any subsystems be isolated?</li>
-				<li>Which voltage levels are needed?</li>
-				<li>Which current draws are needed?</li>
-				<li>How is power distributed?</li>
-				<li>Is there a shared power supply?</li>
-				<li>Is the ground connection made first in hot-plugging connectors?</li>
+				<li>Can the watchdog be bypassed? #testing</li>
+				<li>Can it be overruled? #testing</li>
+				<li>Can it be emulated? #testing</li>
+				<li>What interval is necessary? #safety</li>
+				<li>Is the worst case behavior documented?</li>
 			</ul>
 		</li>
 		<li>System characteristics
 			<ul>
-				<li>Maximum power dissipation</li>
-				<li>Maximum current draw</li>
-				<li>Expected operating temperature</li>
+				<li>Is there a power budget?</li>
+				<li>Estimated power dissipation of each subsystem?</li>
+				<li>Estimated current draW of each subsystem?</li>
+				<li>Estimated expected operating temperature?</li>
+			</ul>
+		</li>
+		<li>Power
+			<ul>
+				<li>Is power-up well defined?</li>
+				<li>Should any subsystems be isolated?</li>
+				<li>Which voltage levels are needed?</li>
+				<li>Which current draws are needed?</li>
+				<li>Is there a shared power supply?
+					<ul>
+						<li>Can it deliver sufficient power for all connected subsystems?</li>
+					</ul>
+				</li>
+				<li>Is the ground connection made first in hot-plugging connectors?</li>
+				<li>Is a separate earth necessary?</li>
 			</ul>
 		</li>
 		<li>Testing
@@ -104,15 +106,14 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Are special connectors needed for testing?</li>
 				<li>Are special peripheral circuitry needed for testing?</li>
 				<li>Is special equipment needed for testing?</li>
+				<li>Should there be in-circuit testing?</li>
+				<li>Is there event logging?</li>
 			</ul>
 		</li>
 		<li>Maintainability
 			<ul>
 				<li>Is disassembly easy?</li>
 				<li>Is reassembly easy?</li>
-				<li>Is there a self-test mode?</li>
-				<li>Are spare parts available?</li>
-				<li>Is there event logging?</li>
 			</ul>
 		</li>
 		<li>Safety
@@ -127,7 +128,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 						<li>Storage for spare fuse?</li>
 					</ul>
 				</li>
-				<li>Avoid signal and power in same connector
+				<li>Is signal and power avoided in same connector?
 					<div class="explanation">Wide Band Laboratory Fire, Fermi National Accelerator Laboratory, 1987.<br />A misjoined connector resulted in several amps being drawn through cables rated for only 1&nbsp;A. A fire started from this. Source: <a href="http://www.tvsfpe.org/_images/zamirowski_&_tess_-_wide_band_fire.pdf">Wide Band Laboratory Fire</a></div>
 				</li>
 			</ul>
@@ -160,6 +161,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>With a margin for spill from PnP machine?</li>
 			</ul>
 		</li>
+		<li>Are voltage ratings of components sufficient? #system #schematic #electrical</li>
 		<li>Are components expected for obsoletion? </li>
 		<li>Are there multiple sources to components?</li>
 		<li>Have all components' errata sheets been checked? #system #schematic #components</li>
@@ -183,7 +185,6 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Are there test points?</li>
 		<li>Are no connects marked/handled?</li>
 		<li>Are all pins on all ICs handled?</li>
-		<li>Is a separate earth necessary?</li>
 		<li>Are the appropriate power nets connected? (Vcc, Vss, Vdd)</li>
 		<li>Is there break-out of extra pins from ICs?</li>
 		<li>Are all junctions dotted?</li>
@@ -211,6 +212,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Unpopulated parts are clearly marked</li>
 		<li>Are component references ordered by schematic layout?</li>
 		<li>Is there a ground connection point (for probes etc.)</li>
+		<li>Is there sufficient bulk capacitance?</li>
 		<li>Sheets
 			<ul>
 				<li>Sheets are consistently sized</li>
@@ -445,6 +447,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 </li>
 <li>Software
 	<ul>
+		<li>Is automated software testing used? #software #procedure</li>
 		<li>Are setup, hold and access times correct for external memories?</li>
 		<li>Are loops checked for termination conditions?</li>
 		<li>Is power up and power down handled correctly?</li>
