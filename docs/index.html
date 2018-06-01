@@ -119,7 +119,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		</li>
 		<li>Are polarized components protected/ensured against from reverse voltage?</li>
 		<li>Pull-up on all open-collector?</li>
-		<li>Are resistors operating within their specified voltage range?</li>
+		<li>Are resistors operating within their specified voltage and power disipation range?</li>
 		<li>Is a low impedance source driving tantalum capacitors? (Can result in premature failure)</li>
 		<li>Text and notes don't overlap wires and symbols</li>
 		<li>Destinations are notes if they go to other sheets</li>
@@ -236,6 +236,8 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Are traces avoided under sensitive components?</li>
 			<li>Are traces avoided under noisy components?</li>
 			<li>Are vias avoided under metal-film resistors?</li>
+			<li>Is via fencing of sensitive RF transission lines done with the proper via spacing? (< 1/20 lambda)</li>
+
 		</ul>
 	</li>
 	<li>Copper pour
@@ -253,6 +255,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>No connections between adjacent pins on ICs (these looks like shorts during inspection)</li>
 			<li>Are vias for internal power traces big enough?</li>
 			<li>Is there enough space for heatsinks? #mechanical #thermal</li>
+			<li>Has mitered bends or soft curves (r > 3 trace width) been implemented for impedance sensitive traces?</li>
 		</ul>
 	</li>
 	<li>Thermal
