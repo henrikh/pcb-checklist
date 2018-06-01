@@ -99,6 +99,23 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Is there event logging?</li>
 			</ul>
 		</li>
+		<li>Safety
+			<ul>
+				<li>Fuses
+					<ul>
+						<li>Appropriately sized?</li>
+						<li>Fast enough for the load?</li>
+						<li>Size and type marked on PCB</li>
+						<li>Replaceable when board is assembled</li>
+						<li>Replaceable when devices is assembled</li>
+						<li>Storage for spare fuse?</li>
+					</ul>
+				</li>
+				<li>Avoid signal and power in same connector
+					<div class="explanation">Wide Band Laboratory Fire, Fermi National Accelerator Laboratory, 1987.<br />A misjoined connector resulted in several amps being drawn through cables rated for only 1&nbsp;A. A fire started from this. Source: <a href="http://www.tvsfpe.org/_images/zamirowski_&_tess_-_wide_band_fire.pdf">Wide Band Laboratory Fire</a></div>
+				</li>
+			</ul>
+		</li>
 		<li>Failure mode analysis
 			<ul>
 				<li>Loss of ground pins on connector</li>
@@ -216,17 +233,17 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 </li>
 <li>Layout
 	<ul>
-<li>Footprints
-	<ul>
-		<li>Is pin 1 marked in a consistent manner?</li>
-		<li>Is polarized component polarity marked in a consistent manner?</li>
-		<li>Are high-density chips marked with pin numbers?</li>
-		<li>Are there tick-marks for every 5/10 pin on high pin count?</li>
-		<li>Are there square pins on components? Are the holes big enough?</li>
-		<li>Have the footprint dimensions been cross-checked with recommended footprint for the specific component?</li>
-		<li>Are the footprints from the data sheet defined as top view or bottom view?</li>
-	</ul>
-</li>
+	<li>Footprints
+		<ul>
+			<li>Is pin 1 marked in a consistent manner?</li>
+			<li>Is polarized component polarity marked in a consistent manner?</li>
+			<li>Are high-density chips marked with pin numbers?</li>
+			<li>Are there tick-marks for every 5/10 pin on high pin count?</li>
+			<li>Are there square pins on components? Are the holes big enough?</li>
+			<li>Have the footprint dimensions been cross-checked with recommended footprint for the specific component?</li>
+			<li>Are the footprints from the data sheet defined as top view or bottom view?</li>
+		</ul>
+	</li>
 	<li>Placement
 		<ul>
 			<li>Are jumpers accessible?</li>
@@ -441,23 +458,6 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Interrupt response time</li>
 				<li>Interrupt execution time</li>
 			</ul>
-		</li>
-	</ul>
-</li>
-<li>Safety
-	<ul>
-		<li>Fuses
-			<ul>
-				<li>Appropriately sized?</li>
-				<li>Fast enough for the load?</li>
-				<li>Size and type marked on PCB</li>
-				<li>Replaceable when board is assembled</li>
-				<li>Replaceable when devices is assembled</li>
-				<li>Storage for spare fuse?</li>
-			</ul>
-		</li>
-		<li>Avoid signal and power in same connector
-			<div class="explanation">Wide Band Laboratory Fire, Fermi National Accelerator Laboratory, 1987.<br />A misjoined connector resulted in several amps being drawn through cables rated for only 1&nbsp;A. A fire started from this. Source: <a href="http://www.tvsfpe.org/_images/zamirowski_&_tess_-_wide_band_fire.pdf">Wide Band Laboratory Fire</a></div>
 		</li>
 	</ul>
 </li>
