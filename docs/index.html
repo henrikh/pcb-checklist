@@ -171,14 +171,31 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 </li>
 <li>Floorplan
 	<ul>
+		<li>Are mechanical constraints defined?
+			<ul>
+				<li>Mounting</li>
+				<li>Board size/shape</li>
+				<li>Connector placement</li>
+				<li>Human interface placement</li>
+			</ul>
+		</li>
 		<li>Can components be oriented in roughly the same way / consistency in layout?</li>
 		<li>Are unreliable components easily accessible?</li>
 		<li>Are interactive components placed in a logical manner? (Consistent orientation of buttons? Consistent rotation of potentiometers?)</li>
+		<li>Are temperature sensitive components placed away from hot components?</li>
 	</ul>
 </li>
 <li>Schematic
 	<ul>
-		<li>Are connections marked with expected current draw?</li>
+		<li>Symbols
+			<ul>
+				<li>Are explicit and informative</li>
+				<li>Mark internal pull-up/-down</li>
+				<li>Mark internal termination</li>
+				<li>Reflect the functionality or logical structure of the component</li>
+				<li>Pins are assigned the correct type (passive, power, in, out etc.)</li>
+			</ul>
+		</li>
 		<li>Is there sufficient decoupling?</li>
 		<li>Is there filtering between analog and digital commons?</li>
 		<li>Has DRC passed?</li>
@@ -189,32 +206,41 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Are all pins on all ICs handled?</li>
 		<li>Are the appropriate power nets connected? (Vcc, Vss, Vdd)</li>
 		<li>Is there break-out of extra pins from ICs?</li>
-		<li>Are all junctions dotted?</li>
 		<li>Have necessary test points been identified?</li>
 		<li>Are mating connectors on different boards matched in pin-out?</li>
 		<li>Have necessary inputs been ESD protected? #ESD</li>
-		<li>Do all components have reference and value?
-			<ul>
-				<li>Are values in a uniform format</li>
-				<li>Are references using standard designators?</li>
-			</ul>
-		</li>
-		<li>Has special PCB requirements been noted? #schematic #pcb #notes
-			<ul>
-				<li>Impedance?</li>
-			</ul>
-		</li>
 		<li>Are polarized components protected/ensured against from reverse voltage?</li>
 		<li>Pull-up on all open-collector?</li>
 		<li>Are resistors operating within their specified voltage range?</li>
 		<li>Is a low impedance source driving tantalum capacitors? (Can result in premature failure)</li>
-		<li>Text and notes don't overlap wires and symbols</li>
-		<li>Destinations are notes if they go to other sheets</li>
 		<li>Multipart components are identified and utilized</li>
-		<li>Unpopulated parts are clearly marked</li>
 		<li>Are component references ordered by schematic layout?</li>
 		<li>Is there a ground connection point (for probes etc.)</li>
 		<li>Is there sufficient bulk capacitance?</li>
+		<li>Documentation and notes
+			<ul>
+				<li>Unpopulated parts are clearly marked</li>
+				<li>Are destinations noted if they go to other sheets</li>
+				<li>Are connections marked with expected current draw?</li>
+				<li>Has special PCB requirements been noted? #schematic #pcb
+					<ul>
+						<li>Impedance?</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>Drafting
+			<ul>
+				<li>Text and notes don't overlap wires and symbols</li>
+				<li>Do all components have reference and value?
+					<ul>
+						<li>Are values in a uniform format</li>
+						<li>Are references using standard designators?</li>
+					</ul>
+				</li>
+				<li>Are all junctions dotted?</li>
+			</ul>
+		</li>
 		<li>Sheets
 			<ul>
 				<li>Sheets are consistently sized</li>
@@ -231,15 +257,6 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 						<li>Sheet/drawing number</li>
 					</ul>
 				</li>
-			</ul>
-		</li>
-		<li>Symbols
-			<ul>
-				<li>Are explicit and informative</li>
-				<li>Mark internal pull-up/-down</li>
-				<li>Mark internal termination</li>
-				<li>Reflect the functionality or logical structure of the component</li>
-				<li>Pins are assigned the correct type (passive, power, in, out etc.)</li>
 			</ul>
 		</li>
 		<li>Op amps
@@ -311,7 +328,6 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Are debug connectors accessible?</li>
 			<li>Filter resistors closer to the source?</li>
 			<li>Termination resistors closer to the target?</li>
-			<li>Are temperature sensitive components placed away from hot components?</li>
 		</ul>
 	</li>
 	<li>Clearance
