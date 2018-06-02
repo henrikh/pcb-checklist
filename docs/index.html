@@ -72,6 +72,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Can it be emulated? #testing</li>
 				<li>What interval is necessary? #safety</li>
 				<li>Is the worst case behavior documented?</li>
+				<li>Should reset be pulled to default on or off?</li>
 			</ul>
 		</li>
 		<li>System characteristics
@@ -167,6 +168,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Are there alternate manufacturers?</li>
 		<li>Are suitable alternatives identified?</li>
 		<li>Have errata sheets been checked? #schematic #components</li>
+		<li>Is reset active high or active low?</li>
 	</ul>
 </li>
 <li>Floorplan
@@ -194,19 +196,15 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Mark internal termination</li>
 				<li>Reflect the functionality or logical structure of the component</li>
 				<li>Pins are assigned the correct type (passive, power, in, out etc.)</li>
+				<li>Are active-high and active-low marked consistently?</li>
 			</ul>
 		</li>
-		<li>Is there sufficient decoupling?</li>
-		<li>Is there filtering between analog and digital commons?</li>
-		<li>Has DRC passed?</li>
-		<li>Are reset pins pulled to off?</li>
+		<li>Are reset pins pulled to high/low?</li>
 		<li>Is reset filtered?</li>
 		<li>Are there test points?</li>
-		<li>Are no connects marked/handled?</li>
 		<li>Are all pins on all ICs handled?</li>
-		<li>Are the appropriate power nets connected? (Vcc, Vss, Vdd)</li>
 		<li>Is there break-out of extra pins from ICs?</li>
-		<li>Have necessary test points been identified?</li>
+		<li>Have necessary test points been added?</li>
 		<li>Are mating connectors on different boards matched in pin-out?</li>
 		<li>Have necessary inputs been ESD protected? #ESD</li>
 		<li>Are polarized components protected/ensured against from reverse voltage?</li>
@@ -216,7 +214,18 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Multipart components are identified and utilized</li>
 		<li>Are component references ordered by schematic layout?</li>
 		<li>Is there a ground connection point (for probes etc.)</li>
-		<li>Is there sufficient bulk capacitance?</li>
+		<li>Power
+			<ul>
+					<li>Are the appropriate power nets connected? (Vcc, Vss, Vdd)</li>
+					<li>Is there sufficient bulk capacitance?</li>
+			</ul>
+		</li>
+		<li>Signal integrity
+			<ul>
+				<li>Is there sufficient decoupling?</li>
+				<li>Is there filtering between analog and digital commons?</li>
+			</ul>
+		</li>
 		<li>Documentation and notes
 			<ul>
 				<li>Unpopulated parts are clearly marked</li>
@@ -225,6 +234,8 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Has special PCB requirements been noted? #schematic #pcb
 					<ul>
 						<li>Impedance?</li>
+						<li>Ground planes?</li>
+						<li>References to data sheet's recommendations</li>
 					</ul>
 				</li>
 			</ul>
@@ -239,6 +250,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 					</ul>
 				</li>
 				<li>Are all junctions dotted?</li>
+				<li>Are no-connects marked?</li>
 			</ul>
 		</li>
 		<li>Sheets
@@ -264,6 +276,11 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Maximum delays and slew rate of comparators</li>
 				<li>Expected over-drive response for unintended input inversion</li>
 				<li>Expected common mode voltage on op amps</li>
+			</ul>
+		</li>
+		<li>Final
+			<ul>
+				<li>Has DRC passed?</li>
 			</ul>
 		</li>
 	</ul>
