@@ -112,7 +112,11 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		</li>
 		<li>Power
 			<ul>
-				<li>Is power-up well defined?</li>
+				<li>How is power provided?</li>
+				<li>Is power-up well-defined?
+					<div>Some subsystems might need to be unpowered before other subsystems are powered, e.g. LED drivers unpowered until the software has booted.<br />
+					Certain components such as complex microprocessors, FPGAs and other complex ICs need special power sequencing to operate correctly; consult datasheets for details.</li>
+				<li>Is power-down well-defined?</li>
 				<li>Should any subsystems be isolated?</li>
 				<li>Which voltage levels are needed?</li>
 				<li>Which current draws are needed?</li>
