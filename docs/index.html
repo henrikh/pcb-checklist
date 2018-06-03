@@ -32,7 +32,6 @@ li > button {
 	background-color: inherit;
 	font-family: inherit;
 	font-size: inherit;
-	text-decoration: underline;
 	cursor: pointer;
 	color: #ababa8;
 }
@@ -570,7 +569,7 @@ explanation_divs = document.querySelectorAll("li > div");
 for (el of explanation_divs) {
 	why_element = document.createElement("button");
 	why_element.innerText = "[+] Why?";
-	el.parentNode.insertBefore(why_element, el)
+	el.parentNode.insertBefore(why_element, el);
 	el.style.display = "none";
 }
 
@@ -579,7 +578,7 @@ main_div.addEventListener("click", function(event) {
 	if (event.target.tagName == "BUTTON" && event.target.textContent.endsWith("Why?")) {
 		var explanation_div = event.target.parentElement.querySelector("div");
 		if(explanation_div.style.display == "none") {
-			explanation_div.style.display = "block"
+			explanation_div.style.display = "block";
 			event.target.innerText = "[-] Why?";
 		}
 		else {
