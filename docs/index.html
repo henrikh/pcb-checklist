@@ -3,17 +3,38 @@
 <title>Electronics and electrical design checklist</title>
 <style>
 #content {
-  max-width: 720px;
-  box-shadow: 5px 5px #DDD;
-  background-color: #F9F9F9;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2em;
-  padding-top: .7em;
+	max-width: 720px;
+	box-shadow: 5px 5px #DDD;
+	background-color: #FDFDFD;
+	color: #222;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 2em;
+	padding-top: .7em;
 }
 
 body {
-  background-color: #EEEEEF;
+	background-color: #EEEEEF;
+}
+
+li > div {
+	max-width: 500px;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	padding-top: calc(.5em - 1px);
+	padding-bottom: calc(.5em - 1px);
+	border-top: 1px solid #222;
+	border-bottom: 1px solid #222;
+}
+
+li > button {
+	border: none;
+	background-color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	text-decoration: underline;
+	cursor: pointer;
+	color: #ababa8;
 }
 </style>
 </head>
@@ -79,7 +100,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<ul>
 				<li>Is there a power budget?</li>
 				<li>Estimated power dissipation of each subsystem?</li>
-				<li>Estimated current draW of each subsystem?</li>
+				<li>Estimated current draw of each subsystem?</li>
 				<li>Estimated expected operating temperature?</li>
 			</ul>
 		</li>
@@ -148,6 +169,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 					<ul>
 						<li>Vibration</li>
 						<li>Heating</li>
+						<li>Radiation</li>
 					</ul>
 				</li>
 			</ul>
@@ -168,7 +190,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Are there alternate manufacturers?</li>
 		<li>Are suitable alternatives identified?</li>
 		<li>Have errata sheets been checked? #schematic #components</li>
-		<li>Is reset active high or active low?</li>
+		<li>Is reset active-high or active-low?</li>
 	</ul>
 </li>
 <li>Floorplan
@@ -403,6 +425,8 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 	<li>Copper pour
 		<ul>
 			<li>GND / power pins are connected and checked?</li>
+			<li>No pour between adjacent pins on ICs?
+				<div>These can be mistaken for shorts during inspection. A keep-out zone between pins can fix this without adjusting the pour clearances.</div></li>
 			<li>Has all layers been checked?</li>
 			<li>Are there thermal reliefs at appropriate places?</li>
 			<li>Do they introduce ground loops?</li>
@@ -412,7 +436,8 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<ul>
 			<li>Are trace-pad connections sufficiently obtuse (angle 90 deg or more)?</li>
 			<li>Are the trace widths sufficient for the current draw and max heating?</li>
-			<li>No connections between adjacent pins on ICs (these looks like shorts during inspection)</li>
+			<li>No connections between adjacent pins on ICs?
+				<div>These can be mistaken for shorts during inspection.</div></li>
 			<li>Are vias for internal power traces big enough?</li>
 			<li>Is there enough space for heatsinks? #mechanical #thermal</li>
 		</ul>
@@ -538,5 +563,33 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 	<li><a href="http://www.jldsystems.com/pdf/Electronics%20Design%20Checklist.pdf">JLD sytstems' Electronics Design Checklist</a></li>
 </ul>
 </div>
+
+<script>
+explanation_divs = document.querySelectorAll("li > div");
+
+for (el of explanation_divs) {
+	why_element = document.createElement("button");
+	why_element.innerText = "[+] Why?";
+	el.parentNode.insertBefore(why_element, el)
+	el.style.display = "none";
+}
+
+main_div = document.getElementById("content");
+main_div.addEventListener("click", function(event) {
+	if (event.target.tagName == "BUTTON" && event.target.textContent.endsWith("Why?")) {
+		var explanation_div = event.target.parentElement.querySelector("div");
+		if(explanation_div.style.display == "none") {
+			explanation_div.style.display = "block"
+			event.target.innerText = "[-] Why?";
+		}
+		else {
+			explanation_div.style.display = "none";
+			event.target.innerText = "[+] Why?";
+		}
+	}
+});
+
+</script>
+
 </body>
 </html>
