@@ -246,6 +246,17 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Multipart components are identified and utilized</li>
 		<li>Are component references ordered by schematic layout?</li>
 		<li>Is there a ground connection point (for probes etc.)</li>
+		<li>Busses
+			<ul>
+				<li>I2C
+					<ul>
+						<li>Pull-up on SDA an SCL
+							<div>I2C is open-drain and thus needs pull-up. References: <a href="https://www.ti.com/lit/an/slva689/slva689.pdf">Texas Instruments, Application Report, I2C Bus Pullup Resistor Calculation</a></div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
 		<li>Power
 			<ul>
 					<li>Are the appropriate power nets connected? (Vcc, Vss, Vdd)</li>
