@@ -27,13 +27,16 @@ li > div {
 	border-bottom: 1px solid #222;
 }
 
-li > button {
+li > button, li > span {
 	border: none;
 	background-color: inherit;
 	font-family: inherit;
 	font-size: inherit;
-	cursor: pointer;
 	color: #ababa8;
+}
+
+li > button {
+	cursor: pointer;
 }
 </style>
 </head>
@@ -594,6 +597,18 @@ for (el of explanation_divs) {
 	why_element.innerText = "[+] Why?";
 	el.parentNode.insertBefore(why_element, el);
 	el.style.display = "none";
+
+	var Nlinks = el.querySelectorAll("a").length;
+	if(Nlinks > 0) {
+		link_note = document.createElement("span");
+		if(Nlinks == 1) {
+			link_note.innerText = "1 link";
+		}
+		else {
+			link_note.innerText = Nlinks.toString() + " links";
+		}
+		el.parentNode.insertBefore(link_note, el);
+	}
 }
 
 main_div = document.getElementById("content");
