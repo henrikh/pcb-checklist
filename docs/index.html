@@ -594,34 +594,36 @@ explanation_divs = document.querySelectorAll("li > div");
 
 for (el of explanation_divs) {
 	why_element = document.createElement("button");
-	why_element.innerText = "[+] Why?";
-	el.parentNode.insertBefore(why_element, el);
-	el.style.display = "none";
+	why_element.classList.add("expandButton");
 
 	var Nlinks = el.querySelectorAll("a").length;
+	var button_text = "[+] Why?";
 	if(Nlinks > 0) {
-		link_note = document.createElement("span");
 		if(Nlinks == 1) {
-			link_note.innerText = "1 link";
+			button_text += " (1 link)";
 		}
 		else {
-			link_note.innerText = Nlinks.toString() + " links";
+			button_text += " (" + Nlinks.toString() + " links)";
 		}
-		el.parentNode.insertBefore(link_note, el);
 	}
+
+	why_element.innerText = button_text;
+
+	el.parentNode.insertBefore(why_element, el);
+	el.style.display = "none";
 }
 
 main_div = document.getElementById("content");
 main_div.addEventListener("click", function(event) {
-	if (event.target.tagName == "BUTTON" && event.target.textContent.endsWith("Why?")) {
+	if (event.target.classList.contains("expandButton")) {
 		var explanation_div = event.target.parentElement.querySelector("div");
 		if(explanation_div.style.display == "none") {
 			explanation_div.style.display = "block";
-			event.target.innerText = "[-] Why?";
+			event.target.innerText = event.target.innerText.replace("[+]","[-]");
 		}
 		else {
 			explanation_div.style.display = "none";
-			event.target.innerText = "[+] Why?";
+			event.target.innerText = event.target.innerText.replace("[-]","[+]");
 		}
 	}
 });
