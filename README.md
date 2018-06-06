@@ -7,6 +7,18 @@ A checklist/[trigger list] for common issues, best practices and considerations 
 The list is being actively developed (written?) and several reorganizations will undoubtedly occur.
 My (Henrik's) current focus is mostly on adding explanations to all items.
 
+Future projects
+---------------
+
+In no particular order.
+
+- Checkboxes
+- Filtering
+- Keyboard navigation
+- Custom check items
+- Notes
+- State saving and sharing
+
 Contributing
 ------------
 
