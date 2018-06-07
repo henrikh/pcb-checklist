@@ -28,6 +28,7 @@ The document is currently plain HTML with embedded JavaScript and CSS -- it keep
 
 A few considerations for new items:
 
+- Does it prevent mistakes or improve quality
 - Place items earlier rather than later
 - Encourage thinking about requirements, rather than prescribing a solution
 - Give reasons and explanations
