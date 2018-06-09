@@ -265,7 +265,12 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Are reset pins pulled to high/low?</li>
 		<li>Is reset filtered?</li>
 		<li>Are there test points?</li>
-		<li>Are all pins on all ICs handled?</li>
+		<li>Are all pins on all ICs handled?
+			<ul>
+				<li>Unused OPAMPS: output to negative input and positive input to ground.</li>
+				<li>Unused comparators: All pins to common.</li>
+			</ul>
+		</li>
 		<li>Is there break-out of extra pins from ICs?</li>
 		<li>Have necessary test points been added?</li>
 		<li>Are mating connectors on different boards matched in pin-out?</li>
@@ -298,6 +303,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<ul>
 				<li>Is there sufficient decoupling?</li>
 				<li>Is there filtering between analog and digital commons?</li>
+				<li>Are optocouplers filtered?</li>
 			</ul>
 		</li>
 		<li>Documentation and notes
@@ -326,6 +332,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				</li>
 				<li>Are all junctions dotted?</li>
 				<li>Are no-connects marked?</li>
+				<li>No 4-way connections</li>
 			</ul>
 		</li>
 		<li>Sheets
@@ -434,6 +441,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>For programming tools</li>
 			<li>For assembly tools (wrenches, screwdrivers etc.)</li>
 			<li>For probes?</li>
+			<li>Trace-to-trace clearance based upon voltage rating?</li>
 		</ul>
 	</li>
 	<li>Mechanical
