@@ -1,4 +1,5 @@
-# Electronics and electrical design checklist
+Electronics and electrical design checklist
+===========================================
 
 [pcbchecklist.com]
 
