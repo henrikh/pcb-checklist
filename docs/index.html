@@ -594,18 +594,22 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 <li>Software
 	<ul>
 		<li>Is automated software testing used? #software #procedure</li>
-		<li>Are setup, hold and access times correct for external memories?</li>
 		<li>Are loops checked for termination conditions?</li>
 		<li>Is power up and power down handled correctly?</li>
 		<li>Are unused interrupts handled? (Either restart or damage control)</li>
-		<li>Is unused ROM spaces filled with traps or restart instructions?</li>
 		<li>Is there a difference between warm and cold reset?
 			<ul>
 				<li>How does the devices behave if only the software is reset?</li>
 			</ul>
 		</li>
+		<li>Memories
+			<ul>
+				<li>Are setup, hold and access times correct for external memories?</li>
 		<li>Is memory integrity checked?</li>
 		<li>Is memory integrity guaranteed?</li>
+				<li>Is unused program memory/ROM spaces filled with traps or restart instructions?</li>
+			</ul>
+		</li>
 		<li>Are buffer overflows handled?</li>
 		<li>Are data formats and structures versioned?
 			<ul>
