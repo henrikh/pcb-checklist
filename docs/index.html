@@ -682,9 +682,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 </div>
 
 <script>
-explanation_divs = document.querySelectorAll("li > div");
-
-for (el of explanation_divs) {
+for (el of document.querySelectorAll("li > div")) {
 	why_element = document.createElement("button");
 	why_element.classList.add("expandButton");
 
@@ -705,8 +703,7 @@ for (el of explanation_divs) {
 	el.style.display = "none";
 }
 
-main_div = document.getElementById("content");
-main_div.addEventListener("click", function(event) {
+document.getElementById("content").addEventListener("click", function(event) {
 	if (event.target.classList.contains("expandButton")) {
 		var explanation_div = event.target.parentElement.querySelector("div");
 		if(explanation_div.style.display == "none") {
@@ -724,7 +721,6 @@ for (el of document.querySelectorAll("a")) {
 	el.target = "_blank";
 	el.rel = "noopener noreferrer";
 }
-
 </script>
 
 </body>
