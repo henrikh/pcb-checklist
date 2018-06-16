@@ -718,6 +718,11 @@ main_div.addEventListener("click", function(event) {
 	}
 });
 
+for (el of document.querySelectorAll("a")) {
+	el.target = "_blank";
+	el.rel = "noopener noreferrer";
+}
+
 </script>
 
 </body>
