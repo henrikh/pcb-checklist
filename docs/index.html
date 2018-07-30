@@ -75,6 +75,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Are amplifier circuits stable?</li>
 		<li>Are oscillators stable?</li>
 		<li>Is there a simulation/simulator of the system or subsystems?</li>
+		<li>Has the design or subsystems of it been simulated?</li>
 		<li>What kind of interfaces and connections are necessary?
 			<ul>
 				<li>For humans?</li>
@@ -276,36 +277,48 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Are power (and ground) pins consistently placed and marked?</li>
 			</ul>
 		</li>
-		<li>Has the design or subsystems of it been simulated?</li>
-		<li>Are reset pins pulled to high/low?</li>
-		<li>Is reset filtered?</li>
-		<li>Are there test points?</li>
-		<li>Are all pins on all ICs handled?
+		<li>Functionality
 			<ul>
-				<li>Unused OPAMPS: output to negative input and positive input to ground.</li>
-				<li>Unused comparators: All pins to common.</li>
+				<li>Are all pins on all ICs handled?
+					<ul>
+						<li>Unused OPAMPS: output to negative input and positive input to ground.</li>
+						<li>Unused comparators: All pins to common.</li>
+						<li>Beak-out of extra pins from ICs or subsystems?</li>
+					</ul>
+				</li>
+				<li>Are mating connectors on different boards matched in pin-out?</li>
+				<li>Have necessary inputs been ESD protected? #ESD
+					<div>A typical solution would be current limiting resistors, clamping diodes.</div>
+				</li>
+				<li>Multipart components are identified and utilized</li>
 			</ul>
 		</li>
-		<li>Is there break-out of extra pins from ICs?</li>
-		<li>Have necessary test points been added?</li>
-		<li>Are mating connectors on different boards matched in pin-out?</li>
-		<li>Have necessary inputs been ESD protected? #ESD</li>
-		<li>Are polarized components protected/ensured against from reverse voltage?</li>
-		<li>Pull-up on all open-collector?</li>
-		<li>Are resistors operating within their specified voltage range?</li>
-		<li>Is a low-impedance source driving tantalum capacitors?
-			<div>It can result in premature failure. Switch-on current should also be limited. References:
-				<ul>
-					<li><a href="http://www.avx.com/docs/techinfo/FieldCrystallization.pdf">A Study of Field Crystallization in Tantalum Capacitors and its effect on DCL and Reliability - AVX</a></li>
-					<li><a href="http://www.avx.com/docs/techinfo/Tantalum-NiobiumCapacitors/voltaged.pdf">Voltage Derating Rules for Solid Tantalum and Niobium Capacitors - AVX</a></li>
-					<li><a href="https://www.edn.com/electronics-blogs/tales-from-the-cube/4363362/What-a-cap-astrophe-">What a cap-astrophe! - Jim Keith, EDN</a></li>
-					<li><a href="http://www.vishay.com/docs/49268/tn0003.pdf">DC LEAKAGE FAILURE MODE - Vishay</a></li>
-				</ul>
-			</div></li>
-		<li>Multipart components are identified and utilized</li>
-		<li>Are component references ordered by schematic layout?</li>
-		<li>Is there a ground connection point (for probes etc.)</li>
-		<li>Current limiting resistor on inputs from outside of board?</li>
+		<li>Electrical
+			<ul>
+					<li>Are reset pins pulled to high/low?</li>
+					<li>Is reset filtered?</li>
+					<li>Are polarized components protected/ensured against from reverse voltage?</li>
+					<li>Pull-up on all open-collector?</li>
+					<li>Are resistors operating within their specified voltage range?</li>
+					<li>Is a low-impedance source driving tantalum capacitors?
+						<div>It can result in premature failure. Switch-on current should also be limited. References:
+							<ul>
+								<li><a href="http://www.avx.com/docs/techinfo/FieldCrystallization.pdf">A Study of Field Crystallization in Tantalum Capacitors and its effect on DCL and Reliability - AVX</a></li>
+								<li><a href="http://www.avx.com/docs/techinfo/Tantalum-NiobiumCapacitors/voltaged.pdf">Voltage Derating Rules for Solid Tantalum and Niobium Capacitors - AVX</a></li>
+								<li><a href="https://www.edn.com/electronics-blogs/tales-from-the-cube/4363362/What-a-cap-astrophe-">What a cap-astrophe! - Jim Keith, EDN</a></li>
+								<li><a href="http://www.vishay.com/docs/49268/tn0003.pdf">DC LEAKAGE FAILURE MODE - Vishay</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>Is there sufficient bulk capacitance?</li>
+			</ul>
+		</li>
+		<li>Testing
+			<ul>
+				<li>Is there a ground connection point (for probes etc.)</li>
+				<li>Have necessary test points been added?</li>
+			</ul>
+		</li>
 		<li>Busses
 			<ul>
 				<li>I2C
@@ -329,12 +342,6 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 						</li>
 					</ul>
 				</li>
-			</ul>
-		</li>
-		<li>Power
-			<ul>
-					<li>Are the appropriate power nets connected? (Vcc, Vss, Vdd)</li>
-					<li>Is there sufficient bulk capacitance?</li>
 			</ul>
 		</li>
 		<li>Signal integrity
@@ -374,6 +381,8 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Are no-connects marked?</li>
 				<li>No 4-way connections</li>
 				<li>No upwards pointing ground symbols?</li>
+				<li>Are component references ordered by schematic layout?</li>
+				<li>Are the appropriate power nets connected? (Vcc, Vss, Vdd)</li>
 			</ul>
 		</li>
 		<li>Sheets
@@ -392,13 +401,6 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 						<li>Sheet/drawing number</li>
 					</ul>
 				</li>
-			</ul>
-		</li>
-		<li>Op amps
-			<ul>
-				<li>Maximum delays and slew rate of comparators</li>
-				<li>Expected over-drive response for unintended input inversion</li>
-				<li>Expected common mode voltage on op amps</li>
 			</ul>
 		</li>
 		<li>Final
