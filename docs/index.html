@@ -265,16 +265,23 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 </li>
 <li>Schematic
 	<ul>
+		<li>CAD
+			<ul>
+				<li>Has DRC been set up and configured #CAD</li>
+				<li>Has a grid size been picked</li>
+			</ul>
+		</li>
 		<li>Symbols
 			<ul>
 				<li>Are explicit and informative</li>
 				<li>Do they resemble electrical circuit symbols?</li>
 				<li>Mark internal pull-up/-down</li>
 				<li>Mark internal termination</li>
-				<li>Reflect the functionality or logical structure of the component <div>In contrast to placing pins as the physically appear on the device. Schematics should reflect functionality; board layout should reflect physical reality.</div></li>
+				<li>Reflect the functionality or logical structure of the component <div>In contrast to placing pins as the physically appear on the device. Schematics should reflect functionality; board layout should reflect physical reality. Physical pin layout has its merit in making debugging easier -- however, so does having a clearer schematic.</div></li>
 				<li>Pins are assigned the correct type (passive, power, in, out etc.)</li>
 				<li>Are active-high and active-low marked consistently?</li>
 				<li>Are power (and ground) pins consistently placed and marked?</li>
+				<li>Do pin positions adhere to the selected grid size <div>If the the pins are off grid, connections might not be made. Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=906">EEVblog #1129 - Creating a Nice Readable Schematic (15:06)</a></div></li>
 			</ul>
 		</li>
 		<li>Functionality
@@ -364,32 +371,37 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 						<li>References to datasheet's recommendations</li>
 					</ul>
 				</li>
+				<li>Notes explaining purpose, functionality, origin, references and caculations for circuits</li>
 			</ul>
 		</li>
 		<li>Drafting
 			<ul>
-				<li>Text and notes don't overlap wires and symbols</li>
-				<li>Is all text horizontal?</li>
+				<li>No overlap between text, notes references, wires, symbols etc. <div>Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=475">EEVblog #1129 - Creating a Nice Readable Schematic (7:55)</a></div></li>
+				<li>Is all text horizontal? <div>Within reason and if there is space for it.</div></li>
 				<li>Do all components have reference and value?
 					<ul>
 						<li>Are values in a uniform format</li>
 						<li>Are references using standard designators?</li>
 						<li>Are references placed unambiguously?</li>
+						<li>Decimal points avoided? <div>Decimal points might get lots during photocopying. Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=2640">EEVblog #1129 - Creating a Nice Readable Schematic (44:00)</a></div></li>
 					</ul>
 				</li>
 				<li>Are all junctions dotted?</li>
 				<li>Are no-connects marked?</li>
-				<li>No 4-way connections</li>
+				<li>No 4-way connections <div>4-way junctions might get lots during photocopying. They can also be ambiguous. Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=4180">EEVblog #1129 - Creating a Nice Readable Schematic (1:9:40)</a></div></li>
 				<li>No upwards pointing ground symbols?</li>
 				<li>Are component references ordered by schematic layout?</li>
 				<li>Are the appropriate power nets connected? (Vcc, Vss, Vdd)</li>
+				<li>Net names on top of lines</li>
+				<li>Are unused nets left unlabeled? <div>If a net is labeled, it is expected to be used. It is usually clearer to leave it unlabeled. Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=1280">EEVblog #1129 - Creating a Nice Readable Schematic (21:20)</a></div></li>
+				<li>All connections/markings have a purpose <div>Connections going from and to nowhere lead to confusion. </div></li>
 			</ul>
 		</li>
 		<li>Sheets
 			<ul>
 				<li>Sheets are consistently sized</li>
 				<li>Readable when printed</li>
-				<li>Logical layout should through top-bottom, left-right</li>
+				<li>Logical layout should go left-right, top-bottom. <div>It is a convention for input signals to "enter" on the left and progress towards right. Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=360">EEVblog #1129 - Creating a Nice Readable Schematic (6:00)</a></div></li>
 				<li>Header/block
 					<ul>
 						<li>Name of author</li>
@@ -696,6 +708,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 
 <ul>
 	<li><a href="https://www.electronics-notes.com/articles/analogue_circuits/pcb-design/pcb-layout-routing.php">PCB Layout & Routing</a><div>Excellent design flow for approaching a board layout.</div></li>
+	<li><a href="https://www.youtube.com/watch?v=R_Ud-FxUw0g">https://www.youtube.com/watch?v=R_Ud-FxUw0g</a></li>
 </ul>
 
 <h2>Other checklists</h2>
