@@ -242,7 +242,11 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Are suitable alternatives identified?</li>
 		<li>Have errata sheets been checked? #schematic #components</li>
 		<li>Is reset active-high or active-low?</li>
-		<li>Do any pins need biasing / pull-up / pull-down?</li>
+		<li>Do any pins need biasing / pull-up / pull-down / strap-in?
+			<ul>
+				<li>Should strap-in be configurable?</li>
+			</ul>
+		</li>
 	</ul>
 </li>
 <li>Floorplan
@@ -322,8 +326,10 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		</li>
 		<li>Testing
 			<ul>
-				<li>Is there a ground connection point (for probes etc.)</li>
+				<li>Are there ground connection points? (for probes etc.)</li>
 				<li>Have necessary test points been added?</li>
+				<li>Have configurable strap-in pins been biased?</li>
+				<li>Have configurable strap-in pins been connected with jumpers or similar?</li>
 			</ul>
 		</li>
 		<li>Busses
@@ -364,10 +370,12 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Unpopulated parts are clearly marked</li>
 				<li>Are destinations noted if they go to other sheets</li>
 				<li>Are connections marked with expected current draw?</li>
-				<li>Has special PCB requirements been noted? #schematic #pcb
+				<li>Has special PCB or layout requirements been noted? #schematic #pcb
 					<ul>
 						<li>Impedance?</li>
 						<li>Ground planes?</li>
+						<li>Routing?</li>
+						<li>Keep-out?</li>
 						<li>References to datasheet's recommendations</li>
 					</ul>
 				</li>
@@ -471,7 +479,12 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 	<li>Footprints
 		<ul>
 			<li>Is pin 1 marked in a consistent manner?</li>
-			<li>Is polarized component polarity marked in a consistent manner?</li>
+			<li>Is component polarity marked in a consistent manner?
+				<ul>
+					<li>For electrically polarized components like capacitors?</li>
+					<li>For keyed components like connectors?</li>
+				</ul>
+			</li>
 			<li>Are high-density chips marked with pin numbers?</li>
 			<li>Are there tick-marks for every 5/10 pin on high pin count?</li>
 			<li>Are there square pins on components? Are the holes big enough?</li>
@@ -483,6 +496,12 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 					<li><a href="https://en.wikipedia.org/wiki/Zig-zag_in-line_package">Wikipedia: Zig-zag in-line package</a></li>
 				</ul>
 			</div></li>
+			<li>Are there the necessary thermal pads?
+				<ul>
+					<li>Are they exposed?</li>
+					<li>Are they connected to the right net?</li>
+				</ul>
+			</li>
 		</ul>
 	</li>
 	<li>Placement
@@ -543,6 +562,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Are differential pair spacing based upon impedance matching?</li>
 			<li>Are transmission lines terminated with an appropriate impedance?</li>
 			<li>Are crystal connections short?</li>
+			<li>Is there a guard ring around the crystal?</li>
 			<li>Are there filters on A/D pins?</li>
 			<li>Drivers / receivers placed close to connectors?</li>
 			<li>EMI / RFI close to entry / exit of shielded areas?</li>
@@ -550,7 +570,6 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Are traces avoided under noisy components?</li>
 			<li>Are vias avoided under metal-film resistors?</li>
 			<li>Is via fencing of sensitive RF transission lines done with the proper via spacing? (< 1/20 lambda)</li>
-
 		</ul>
 	</li>
 	<li>Copper pour
@@ -580,6 +599,9 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Are there thermal vias in thermal pads?</li>
 		</ul>
 	</li>
+	<li>Testing
+		<li>Are there ground connection points close to analog test points?</li>
+	</li>
 	<li>Silk screen
 		<ul>
 			<li>Notes and documentation
@@ -588,11 +610,19 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 					<li>Is there a date?</li>
 					<li>Is there blank space for a serial/assembly number?</li>
 					<li>Are connector pin-outs labeled?</li>
-					<li>Are test point labeled?</li>
 					<li>Fuse size and type marked on PCB</li>
 					<li>Are functional groups marked?</li>
 					<li>Are high-density chips marked with pin numbers?</li>
-					<li>Are terminals marked with functions?</li>
+					<li>Is functionality labeled?
+						<ul>
+							<li>Test points</li>
+							<li>LEDs</li>
+							<li>Buttons</li>
+							<li>Connectors/terminals</li>
+							<li>Mounting holes</li>
+							<li>Jumpers</li>
+						</ul>
+					</li>
 				</ul>
 			</li>
 			<li>Drafting
