@@ -104,6 +104,17 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Should any subsystems be default off? #power</li>
 			</ul>
 		</li>
+		<li>Communication
+			<ul>
+				<li>Which busses/protocols will be used?
+					<ul>
+						<li>Between subsystems?</li>
+						<li>Between chips/modules?</li>
+					</ul>
+				</li>
+				<li>Has addresses been allocated?</li>
+			</ul>
+		</li>
 		<li>Watchdog and reset
 			<ul>
 				<li>Can the watchdog be bypassed? #testing</li>
@@ -242,9 +253,10 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Are suitable alternatives identified?</li>
 		<li>Have errata sheets been checked? #schematic #components</li>
 		<li>Is reset active-high or active-low?</li>
-		<li>Do any pins need biasing / pull-up / pull-down / strap-in?
+		<li>Do any pins need biasing / pull-up / pull-down / strap?
 			<ul>
-				<li>Should strap-in be configurable?</li>
+				<li>During initialization?</li>
+				<li>For addresses?</li>
 			</ul>
 		</li>
 	</ul>
@@ -763,6 +775,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 	<li><a href="http://www.electronic-products-design.com/geek-area/electronics/pcb-design/general-pcb-design/a-good-pcb-design-checklist">IBEX: Good PCB Design Checklist</a></li>
 	<li><a href="https://volersystems.com/v-2010/91-pcb-layout-checklist/">Voler systems: PCB Layout Checklist</a></li>
 	<li><a href="http://www.jldsystems.com/pdf/Electronics%20Design%20Checklist.pdf">JLD sytstems' Electronics Design Checklist</a></li>
+	<li><a href="https://github.com/azonenberg/pcb-checklist">azonenberg's layout and schematic checklist</a></li>
 </ul>
 </div>
 
