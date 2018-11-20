@@ -260,7 +260,13 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			</ul>
 		</li>
 		<li>Can components be oriented in roughly the same way / consistency in layout?</li>
-		<li>Are unreliable components easily accessible?</li>
+		<li>Are components easily accessible?
+			<div>Large components or high density boards might make it difficult to inspect components during testing or after failure. Apart from visual blocking it can also manifest as physically blocking from accessing with probes.</div>
+			<ul>
+				<li>For inspection?</li>
+				<li>For replacement?</li>
+			</ul>
+		</li>
 		<li>Are interactive components placed in a logical manner? (Consistent orientation of buttons? Consistent rotation of potentiometers?)</li>
 		<li>Are temperature sensitive components placed away from hot components?</li>
 		<li>Should there be a ground ring?
@@ -514,14 +520,13 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 	</li>
 	<li>Clearance
 		<ul>
+			<li>Are all keep-out areas honored?</li>
 			<li>Around mounting holes?</li>
 			<li>For IC extraction tools?</li>
-			<li>Are all keep-out areas honored?</li>
-			<li>For programming tools</li>
+			<li>For programming tools?</li>
 			<li>For assembly tools (wrenches, screwdrivers etc.)</li>
 			<li>For probes?</li>
 			<li>Trace-to-trace clearance based upon voltage rating?</li>
-			<li>Test points on PCB for hard-to-reach nets?</li>
 		</ul>
 	</li>
 	<li>Mechanical
@@ -601,6 +606,9 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 	</li>
 	<li>Testing
 		<li>Are there ground connection points close to analog test points?</li>
+		<li>Are there test points for nets which are difficult to probe due to layout?
+			<div>Some nets might be inaccessible because of other components, casing and so on. In this case they should be made more accessible.</div>
+		</li>
 	</li>
 	<li>Silk screen
 		<ul>
