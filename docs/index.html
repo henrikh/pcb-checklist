@@ -17,6 +17,8 @@ body {
 	background-color: #EEEEEF;
 }
 
+/* Explanation boxes */
+
 li > div {
 	max-width: 500px;
 	margin-top: .5em;
@@ -38,6 +40,34 @@ li > button {
 li > button {
 	cursor: pointer;
 }
+
+/* Numbering */
+
+ol {
+	counter-reset: section;
+	list-style-type: none;
+}
+
+#content > ol {
+	padding: 0;
+}
+
+ol > li::before {
+	counter-increment: section;
+	content: counters(section, ".") " ";
+	color: grey;
+}
+
+/* Headers */
+
+li > h2 {
+	display: inline;
+}
+
+#content > ol > li::before {
+	font-size: 1.5em;
+}
+
 </style>
 </head>
 <body>
@@ -50,91 +80,91 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 </p>
 
 <ol>
-<li>Process
-	<ul>
+<li><h2>Process</h2>
+	<ol>
 		<li>Is there a method of tracking versions/revisions?
-			<ul>
+			<ol>
 				<li>For system</li>
 				<li>For schematics</li>
 				<li>For PCBs</li>
 				<li>For software</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Is source version control used? (Git, SVN etc.) #software</li>
 		<li>Is offsite backup used?</li>
 		<li>Are design decisions documented?
-			<ul>
+			<ol>
 				<li>Within or separate from the schematics/drawings/code?</li>
-			</ul>
+			</ol>
 		</li>
-	</ul>
+	</ol>
 </li>
-<li>System
-	<ul>
+<li><h2>System</h2>
+	<ol>
 		<li>What should have ESD protection? #ESD</li>
 		<li>Are amplifier circuits stable?</li>
 		<li>Are oscillators stable?</li>
 		<li>Is there a simulation/simulator of the system or subsystems?</li>
 		<li>Has the design or subsystems of it been simulated?</li>
 		<li>What kind of interfaces and connections are necessary?
-			<ul>
+			<ol>
 				<li>For humans?</li>
 				<li>For computers / control software?</li>
 				<li>For power?</li>
 				<li>For other subsystems?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Are there status LEDs
-			<ul>
+			<ol>
 				<li>Power</li>
 				<li>Programmable</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Subsystems
-			<ul>
+			<ol>
 				<li>Are multiple boards needed?</li>
 				<li>How are subsystems connected?</li>
 				<li>Is there a breakout board for subsystem connectors?</li>
 				<li>Have harnesses/wiring/connectors been identified?
-					<ul>
+					<ol>
 						<li>Have pin-outs been defined and specified?</li>
 						<li>What is the max current draw?</li>
-					</ul>
+					</ol>
 				</li>
 				<li>Should any subsystems be default off? #power</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Communication
-			<ul>
+			<ol>
 				<li>Which busses/protocols will be used?
-					<ul>
+					<ol>
 						<li>Between subsystems?</li>
 						<li>Between chips/modules?</li>
-					</ul>
+					</ol>
 				</li>
 				<li>Has addresses been allocated?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Watchdog and reset
-			<ul>
+			<ol>
 				<li>Can the watchdog be bypassed? #testing</li>
 				<li>Can it be overruled? #testing</li>
 				<li>Can it be emulated? #testing</li>
 				<li>What interval is necessary? #safety</li>
 				<li>Is the worst case behavior documented?</li>
 				<li>Should reset be pulled to default on or off?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>System characteristics
-			<ul>
+			<ol>
 				<li>Is there a power budget?</li>
 				<li>Estimated power dissipation of each subsystem?</li>
 				<li>Estimated current draw of each subsystem?</li>
 				<li>Estimated expected operating temperature?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Power
-			<ul>
+			<ol>
 				<li>How is power provided?</li>
 				<li>Is power-up well-defined?
 					<div>Some subsystems might need to be unpowered before other subsystems are powered, e.g. LED drivers unpowered until the software has booted.<br />
@@ -144,75 +174,75 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Which voltage levels are needed?</li>
 				<li>Which current draws are needed?</li>
 				<li>Is there a shared power supply?
-					<ul>
+					<ol>
 						<li>Can it deliver sufficient power for all connected subsystems?</li>
-					</ul>
+					</ol>
 				</li>
 				<li>Is the ground connection made first in hot-plugging connectors?</li>
 				<li>Is a separate earth necessary?</li>
 				<li>Will under or over voltage protection be needed?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Testing
-			<ul>
+			<ol>
 				<li>Test points on PCB for critical circuits?</li>
 				<li>Test pads for flying probe/bed-of-nails/pogos setups?</li>
 				<li>Has a test procedure been written?</li>
 				<li>Are special connectors needed for testing?</li>
 				<li>Are special peripheral circuitry needed for testing?
-					<ul>
+					<ol>
 						<li>Breakout boards for connectors?</li>
-					</ul>
+					</ol>
 				</li>
 				<li>Is special equipment needed for testing?</li>
 				<li>Should there be in-circuit testing?
-					<ul>
+					<ol>
 						<li>Voltage monitoring?</li>
 						<li>Current monitoring?</li>
 						<li>Temperature monitoring?</li>
 						<li>Peripheral device behavior</li>
-					</ul>
+					</ol>
 				</li>
 				<li>Is there event/data logging?
-					<ul>
+					<ol>
 						<li>Voltage monitoring?</li>
 						<li>Current monitoring?</li>
 						<li>Temperature monitoring?</li>
 						<li>Connections/disconnects?</li>
 						<li>Peripheral device states?</li>
 						<li>Battery health?</li>
-					</ul>
+					</ol>
 				</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Maintainability
-			<ul>
+			<ol>
 				<li>Is disassembly easy?</li>
 				<li>Is reassembly easy?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Safety
-			<ul>
+			<ol>
 				<li>Fuses
-					<ul>
+					<ol>
 						<li>Appropriately sized?</li>
 						<li>Fast enough for the load?</li>
 						<li>Replaceable when board is assembled</li>
 						<li>Replaceable when devices is assembled</li>
 						<li>Storage for spare fuse?</li>
-					</ul>
+					</ol>
 				</li>
 				<li>Can connections be mated in an unsafe way?</li>
 				<li>Do connectors for different purposes share the same type of plug/socket?</li>
 				<li>Is signal and power avoided in same connector?
 					<div>Wide Band Laboratory Fire, Fermi National Accelerator Laboratory, 1987.<br />A misjoined connector resulted in several amps being drawn through cables rated for only 1&nbsp;A. A fire started from this. Source: <a href="http://www.tvsfpe.org/_images/zamirowski_&_tess_-_wide_band_fire.pdf">Wide Band Laboratory Fire</a></div>
 				</li>
-			</ul>
+			</ol>
 		</li>
 		<li>EMC
-			<ul>
+			<ol>
 				<li> Requirements
-					<ul>
+					<ol>
 						<li> What noise freqencies are emitted? (e.g. clock and <abbr title="Switched-mode power supply">SMPS</abbr> frequencies) </li>
 						<li> What noise frequencies is the circuit sensitive to? (RF?) </li>
 						<li> What noise will be generated by connected devices? (e.g. mains adaptors) </li>
@@ -222,10 +252,10 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 							Industrial or automotive use has different test requirements and permissable emission levels than consumer goods. For industrial, the levels are usually higher. See <a href="https://www.conformance.co.uk/adirectives/doku.php?id=emc#tests">Conformance UK's guide </a>
 							</div> 
 						</li>
-					</ul>
+					</ol>
 				</li>
 				<li> Prevention
-					<ul>
+					<ol>
 						<li>Do switching supplies have (or have an option for) RC snubbers?
 							<div>While not always needed for stability, an RC snubber can dampen ringing oscillations, which result in high frequency noise that may exceed EMC limits.</div>
 						</li>
@@ -241,47 +271,47 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 							If switch mode power supplies are powered from the same source and are not syncronized, they can produce "beat" frequencies from being out of phase, and input and output ripple is also increased. See <a href="https://www.eetimes.com/author.asp?section_id=183&doc_id=1323282"> TI Power Tip 73: Synchronizing Makes for Well-Behaved Power Supplies </a>
 							</div>
 						</li>
-					</ul>
+					</ol>
 				</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Failure mode analysis
-			<ul>
+			<ol>
 				<li>Loss of ground pins on connector</li>
 				<li>Effect of lost connection
-					<ul>
+					<ol>
 						<li>Between subsystems</li>
 						<li>To computer</li>
-					</ul>
+					</ol>
 				</li>
 				<li>System behavior when battery is fully discharged?</li>
 				<li>Effects of voltage transients and high voltages on FETs</li>
 				<li>Expected failure modes of failed semiconductors
-					<ul>
+					<ol>
 						<li>Expected effects of failed semiconductors</li>
-					</ul>
+					</ol>
 				</li>
 				<li>Are component ratings derated by expected operating temperature/voltage/current?</li>
 				<li>Environmental tolerance
-					<ul>
+					<ol>
 						<li>Vibration</li>
 						<li>Heating</li>
 						<li>Radiation</li>
 						<li>Humidity</li>
 						<li>Magnetism</li>
-					</ul>
+					</ol>
 				</li>
-			</ul>
+			</ol>
 		</li>
-	</ul>
+	</ol>
 </li>
-<li>Components
-	<ul>
+<li><h2>Components</h2>
+	<ol>
 		<li>Are the necessary components in stock?
-			<ul>
+			<ol>
 				<li>With a margin for defects/failures/loss?</li>
 				<li>With a margin for spill from PnP machine?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Are voltage ratings of components sufficient? #schematic #electrical</li>
 		<li>Are any components expected for obsoletion?</li>
@@ -291,49 +321,49 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Have errata sheets been checked? #schematic #components</li>
 		<li>Is reset active-high or active-low?</li>
 		<li>Do any pins need biasing / pull-up / pull-down / strap?
-			<ul>
+			<ol>
 				<li>During initialization?</li>
 				<li>For addresses?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Are some functions only available in certain modes?</li>
 		<li>Are the inputs and outputs organized in banks?</li>
-	</ul>
+	</ol>
 </li>
-<li>Floorplan
-	<ul>
+<li><h2>Floorplan</h2>
+	<ol>
 		<li>Are mechanical constraints defined?
-			<ul>
+			<ol>
 				<li>Mounting</li>
 				<li>Board size/shape</li>
 				<li>Connector placement</li>
 				<li>Human interface placement</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Can components be oriented in roughly the same way / consistency in layout?</li>
 		<li>Are components easily accessible?
 			<div>Large components or high density boards might make it difficult to inspect components during testing or after failure. Apart from visual blocking it can also manifest as physically blocking from accessing with probes.</div>
-			<ul>
+			<ol>
 				<li>For inspection?</li>
 				<li>For replacement?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Are interactive components placed in a logical manner? (Consistent orientation of buttons? Consistent rotation of potentiometers?)</li>
 		<li>Are temperature sensitive components placed away from hot components?</li>
 		<li>Should there be a ground ring?
 			<div><em>Ground rings</em> serve both a signal integrity and a practical purpose. For EMC it is necessary to avoid traces along edges of the PCB. Adding a ground ring is an easy way of ensuring this constraint is held. It also provides somewhat better EMI prevention. Source: <a href="https://electronics.stackexchange.com/a/36845/2795">Why are vias placed this way on a PCB? - Stack Exchange</a></div></li>
-	</ul>
+	</ol>
 </li>
-<li>Schematic
-	<ul>
+<li><h2>Schematic</h2>
+	<ol>
 		<li>CAD
-			<ul>
+			<ol>
 				<li>Has DRC been set up and configured #CAD</li>
 				<li>Has a grid size been picked</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Symbols
-			<ul>
+			<ol>
 				<li>Are explicit and informative</li>
 				<li>Do they resemble electrical circuit symbols?</li>
 				<li>Mark internal pull-up/-down</li>
@@ -343,26 +373,26 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Are active-high and active-low marked consistently?</li>
 				<li>Are power (and ground) pins consistently placed and marked?</li>
 				<li>Do pin positions adhere to the selected grid size <div>If the the pins are off grid, connections might not be made. Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=906">EEVblog #1129 - Creating a Nice Readable Schematic (15:06)</a></div></li>
-			</ul>
+			</ol>
 		</li>
 		<li>Functionality
-			<ul>
+			<ol>
 				<li>Are all pins on all ICs handled?
-					<ul>
+					<ol>
 						<li>Unused OPAMPS: output to negative input and positive input to ground.</li>
 						<li>Unused comparators: All pins to common.</li>
 						<li>Beak-out of extra pins from ICs or subsystems?</li>
-					</ul>
+					</ol>
 				</li>
 				<li>Are mating connectors on different boards matched in pin-out?</li>
 				<li>Have necessary inputs been ESD protected? #ESD
 					<div>A typical solution would be current limiting resistors, clamping diodes.</div>
 				</li>
 				<li>Multipart components are identified and utilized</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Electrical
-			<ul>
+			<ol>
 					<li>Are reset pins pulled to high/low?</li>
 					<li>Is reset filtered?</li>
 					<li>Are polarized components protected/ensured against from reverse voltage?</li>
@@ -379,43 +409,43 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 						</div>
 					</li>
 					<li>Is there sufficient bulk capacitance?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Testing
-			<ul>
+			<ol>
 				<li>Are there ground connection points? (for probes etc.)</li>
 				<li>Have necessary test points been added?</li>
 				<li>Have configurable strap-in pins been biased?</li>
 				<li>Have configurable strap-in pins been connected with jumpers or similar?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Busses
-			<ul>
+			<ol>
 				<li>I2C
-					<ul>
+					<ol>
 						<li>Pull-up on SDA an SCL
 							<div>I2C is open-drain and thus needs pull-up. References: <a href="https://www.ti.com/lit/an/slva689/slva689.pdf">Texas Instruments, Application Report, I2C Bus Pullup Resistor Calculation</a></div>
 						</li>
-					</ul>
+					</ol>
 				</li>
 				<li>JTAG
-					<ul>
+					<ol>
 						<li>Have datasheets been consulted for necessary pull-up/-down?
 							<div>Typically TMS and TDI are pull-up and TCK is pull-down, but it changes between manufacturers and devices. Some devices have internal pull-up/-down, yet external resistors are recommended to keep start-up well-defined.</div>
 						</li>
-					</ul>
+					</ol>
 				</li>
 				<li>SWD
-					<ul>
+					<ol>
 						<li>Have datasheets been consulted for necessary pull-up/-down?
 							<div>Typically TMS and TDI are pull-up and TCK is pull-down, but it changes between manufacturers and devices. Some devices have internal pull-up/-down, yet external resistors are recommended to keep start-up well-defined.</div>
 						</li>
-					</ul>
+					</ol>
 				</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Signal integrity
-			<ul>
+			<ol>
 				<li>Is there sufficient decoupling?</li>
 				<li>Is there filtering between analog and digital commons?</li>
 				<li>Are optocouplers filtered?</li>
@@ -444,36 +474,36 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 					<div> High frequency EMI signals can be rectified by the op-amp if not filtered out beforehand, resulting in DC errors at the output. See <a href="https://www.analog.com/media/en/training-seminars/tutorials/MT-096.pdf"> Analog Devices MT-096, RFI Rectification Concepts </a> and <a href="https://cherryclough.com/media/file/Miscellaneous/Analogue%20circuit%20design%20for%20RF%20immunity,%20EMCJ,%20Issue%2084,%20Sept%202009.pdf"> Analogue circuit design for RF immunity, Clough Consoltants </a> 
 					</div>
 				</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Documentation and notes
-			<ul>
+			<ol>
 				<li>Unpopulated parts are clearly marked</li>
 				<li>Are destinations noted if they go to other sheets</li>
 				<li>Are connections marked with expected current draw?</li>
 				<li>Has special PCB or layout requirements been noted? #schematic #pcb
-					<ul>
+					<ol>
 						<li>Impedance?</li>
 						<li>Ground planes?</li>
 						<li>Routing?</li>
 						<li>Keep-out?</li>
 						<li>References to datasheet's recommendations</li>
-					</ul>
+					</ol>
 				</li>
 				<li>Notes explaining purpose, functionality, origin, references and caculations for circuits</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Drafting
-			<ul>
+			<ol>
 				<li>No overlap between text, notes references, wires, symbols etc. <div>Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=475">EEVblog #1129 - Creating a Nice Readable Schematic (7:55)</a></div></li>
 				<li>Is all text horizontal? <div>Within reason and if there is space for it.</div></li>
 				<li>Do all components have reference and value?
-					<ul>
+					<ol>
 						<li>Are values in a uniform format</li>
 						<li>Are references using standard designators?</li>
 						<li>Are references placed unambiguously?</li>
 						<li>Decimal points avoided? <div>Decimal points might get lost during photocopying. Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=2640">EEVblog #1129 - Creating a Nice Readable Schematic (44:00)</a></div></li>
-					</ul>
+					</ol>
 				</li>
 				<li>Are all junctions dotted?</li>
 				<li>Are no-connects marked?</li>
@@ -484,15 +514,15 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Net names on top of lines</li>
 				<li>Are unused nets left unlabeled? <div>If a net is labeled, it is expected to be used. It is usually clearer to leave it unlabeled. Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=1280">EEVblog #1129 - Creating a Nice Readable Schematic (21:20)</a></div></li>
 				<li>All connections/markings have a purpose <div>Connections going from and to nowhere lead to confusion. </div></li>
-			</ul>
+			</ol>
 		</li>
 		<li>Sheets
-			<ul>
+			<ol>
 				<li>Sheets are consistently sized</li>
 				<li>Readable when printed</li>
 				<li>Logical layout should go left-right, top-bottom. <div>It is a convention for input signals to "enter" on the left and progress towards right. Reference: <a href="https://youtu.be/R_Ud-FxUw0g?t=360">EEVblog #1129 - Creating a Nice Readable Schematic (6:00)</a></div></li>
 				<li>Header/block
-					<ul>
+					<ol>
 						<li>Name of author</li>
 						<li>Name of reviewer</li>
 						<li>List of revisions and changes</li>
@@ -500,26 +530,26 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 						<li>Revision</li>
 						<li>Company / organization</li>
 						<li>Sheet/drawing number</li>
-					</ul>
+					</ol>
 				</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Final
-			<ul>
+			<ol>
 				<li>Has DRC passed?</li>
-			</ul>
+			</ol>
 		</li>
-	</ul>
+	</ol>
 </li>
-<li>Printed circuit board
-	<ul>
+<li><h2>Printed circuit board</h2>
+	<ol>
 	<li>Manufacturing
-		<ul>
+		<ol>
 			<li>Are gold fingers needed?</li>
 			<li>How is the PCB panelized?
-				<ul>
+				<ol>
 					<li>Do layers align on panelized files?</li>
-				</ul>
+				</ol>
 			</li>
 			<li>What stack-up is needed?</li>
 			<li>Which finish is necessary?</li>
@@ -528,43 +558,43 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Ability for blind or buried vias?</li>
 			<li>Are solder paste openings the proper size?</li>
 			<li>Are manufacturing tolerances honored?
-				<ul>
+				<ol>
 					<li>Solder mask</li>
 					<li>Silk screen</li>
 					<li>Traces</li>
 					<li>Holes</li>
-				</ul>
+				</ol>
 			</li>
 			<li>Are all manufacturing requirements noted on the layout file?
-				<ul>
+				<ol>
 					<li>Finish, holes, thickness, solder mask</li>
-				</ul>
+				</ol>
 			</li>
 			<li>Panelization
-				<ul>
+				<ol>
 					<li>Panelized PCB fits test rig</li>
-				</ul>
+				</ol>
 			</li>
 			<li>Assembly
-				<ul>
+				<ol>
 					<li>Is there enough space for the minimum bending radius of the wire harnessing?</li>
 					<li>Are fiducials needed for assembly?</li>
 					<li>Is there a recommended/necessary order for mounting components on the board?</li>
 					<li>Will mounting certain components make it impossible to mount others?</li>
 					<li>Is there an assembly order for subsystems?</li>
 					<li>Is there a testing order for subsystems?</li>
-				</ul>
+				</ol>
 			</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Footprints
-		<ul>
+		<ol>
 			<li>Is pin 1 marked in a consistent manner?</li>
 			<li>Is component polarity marked in a consistent manner?
-				<ul>
+				<ol>
 					<li>For electrically polarized components like capacitors?</li>
 					<li>For keyed components like connectors?</li>
-				</ul>
+				</ol>
 			</li>
 			<li>Are high-density chips marked with pin numbers?</li>
 			<li>Are there tick-marks for every 5/10 pin on high pin count?</li>
@@ -578,23 +608,23 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				</ul>
 			</div></li>
 			<li>Are there the necessary thermal pads?
-				<ul>
+				<ol>
 					<li>Are they exposed?</li>
 					<li>Are they connected to the right net? <div>The net is not necessarily ground.</div></li>
-				</ul>
+				</ol>
 			</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Placement
-		<ul>
+		<ol>
 			<li>Are jumpers accessible?</li>
 			<li>Are debug connectors accessible?</li>
 			<li>Filter resistors closer to the source?</li>
 			<li>Termination resistors closer to the target?</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Clearance
-		<ul>
+		<ol>
 			<li>Are all keep-out areas honored?</li>
 			<li>Around mounting holes?</li>
 			<li>For IC extraction tools?</li>
@@ -602,10 +632,10 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>For assembly tools (wrenches, screwdrivers etc.)</li>
 			<li>For probes?</li>
 			<li>Trace-to-trace clearance based upon voltage rating?</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Mechanical
-		<ul>
+		<ol>
 			<li>Is there spacing for an assembly run marking?</li>
 			<li>Is there clearance for connectors?</li>
 			<li>Are there mounting holes?</li>
@@ -620,10 +650,10 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Is there enough vertical space for components?</li>
 			<li>Is there a drill legend?</li>
 			<li>Are internal corners rounded? Can they be milled?</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Electrical
-		<ul>
+		<ol>
 			<li>What stack-up is needed?</li>
 			<li>Polarized components are oriented correctly</li>
 			<li>All traces are routed?</li>
@@ -632,10 +662,10 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Does ERC pass?</li>
 			<li>Are isolation barriers large enough? #mechanical #power #safety</li>
 			<li>Are the appropriate power nets connected? (Vcc, Vss, Vdd)</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Signal integrity
-		<ul>
+		<ol>
 			<li>Are digital signals routed over separate (digital) ground planes?</li>
 			<li>Do high-speed signals avoid gaps in ground planes?</li>
 			<li>Are stubs minimized for high-speed signals?</li>
@@ -651,20 +681,20 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Are vias avoided under metal-film resistors?</li>
 			<li>Is via fencing of sensitive RF transission lines done with the proper via spacing? (< 1/20 lambda)</li>
 			<li>Is there an option for a shielding can over sensitive circuitry e.g. RF? </li>
-		</ul>
+		</ol>
 	</li>
 	<li>Copper pour
-		<ul>
+		<ol>
 			<li>GND / power pins are connected and checked?</li>
 			<li>No pour between adjacent pins on ICs?
 				<div>These can be mistaken for shorts during inspection. A keep-out zone between pins can fix this without adjusting the pour clearances.</div></li>
 			<li>Has all layers been checked?</li>
 			<li>Are there thermal reliefs at appropriate places?</li>
 			<li>Do they introduce ground loops?</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Traces
-		<ul>
+		<ol>
 			<li>Are trace-pad connections sufficiently obtuse (angle 90 deg or more)?</li>
 			<li>Are the trace widths sufficient for the current draw and max heating?</li>
 			<li>No connections between adjacent pins on ICs?
@@ -672,13 +702,13 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Are vias for internal power traces big enough?</li>
 			<li>Is there enough space for heatsinks? #mechanical #thermal</li>
 			<li>Has mitered bends or soft curves (r > 3 trace width) been implemented for impedance sensitive traces?</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Thermal
-		<ul>
+		<ol>
 			<li>Are temperature sensitive components placed away from hot components?</li>
 			<li>Are there thermal vias in thermal pads?</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Testing
 		<li>Are there ground connection points close to analog test points?</li>
@@ -687,9 +717,9 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		</li>
 	</li>
 	<li>Silk screen
-		<ul>
+		<ol>
 			<li>Notes and documentation
-				<ul>
+				<ol>
 					<li>Is there a revision number?</li>
 					<li>Is there a date?</li>
 					<li>Is there blank space for a serial/assembly number?</li>
@@ -698,30 +728,30 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 					<li>Are functional groups marked?</li>
 					<li>Are high-density chips marked with pin numbers?</li>
 					<li>Is functionality labeled?
-						<ul>
+						<ol>
 							<li>Test points</li>
 							<li>LEDs</li>
 							<li>Buttons</li>
 							<li>Connectors/terminals</li>
 							<li>Mounting holes</li>
 							<li>Jumpers</li>
-						</ul>
+						</ol>
 					</li>
-				</ul>
+				</ol>
 			</li>
 			<li>Drafting
-				<ul>
+				<ol>
 					<li>No silk screen on pads</li>
 					<li>All text is readable from at most two directions</li>
 					<li>Will the silk screen be legible?</li>
 					<li>Are component references order by PCB layout?</li>
 					<li>Is there a coordinate system?</li>
-				</ul>
+				</ol>
 			</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Final
-		<ul>
+		<ol>
 			<li>Does ERC pass?</li>
 			<li>Are there any superfluous vias?</li>
 			<li>Does LVS pass?
@@ -729,10 +759,10 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<em>Layout Versus Schematic</em> is a check to confirm that the board layout actually implements the schematic. That is: Are the traces actually connecting the proper components? Resources: <a href="https://en.wikipedia.org/wiki/Layout_Versus_Schematic">Wikipedia</a>.
 				</div>
 			</li>
-		</ul>
+		</ol>
 	</li>
 	<li>Header/block
-		<ul>
+		<ol>
 			<li>Name of author</li>
 			<li>Name of reviewer</li>
 			<li>List of revisions and changes</li>
@@ -740,18 +770,18 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Revision</li>
 			<li>Company / organization</li>
 			<li>Sheet/drawing number</li>
-		</ul>
+		</ol>
 	</li>
-	</ul>
+	</ol>
 </li>
-<li>Board inspection
-	<ul>
+<li><h2>Board inspection</h2>
+	<ol>
 		<li>Solder mask alignment</li>
 		<li>Solder mask curing</li>
-	</ul>
+	</ol>
 </li>
-<li>Wired harnessing
-	<ul>
+<li><h2>Wired harnessing</h2>
+	<ol>
 	<li>Wire gauge compatible with termination</li>
 	<li>Cable ties and lacing cord is noted</li>
 	<li>Length and color is noted</li>
@@ -759,60 +789,60 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 	<li>Avoid current flow to remote sources through earth</li>
 	<li>Is there a breakout board for the connector?</li>
 	<li>Wire termination is noted
-		<ul>
+		<ol>
 			<li>Heat shrink tubing</li>
 			<li>Solder</li>
 			<li>Crimp force</li>
-		</ul>
+		</ol>
 	</li>
-	</ul>
+	</ol>
 </li>
-<li>Software
-	<ul>
+<li><h2>Software</h2>
+	<ol>
 		<li>Is automated software testing used? #software #procedure</li>
 		<li>Is there a style guide?</li>
 		<li>Are loops checked for termination conditions?</li>
 		<li>Is power up and power down handled correctly?</li>
 		<li>Are unused interrupts handled? (Either restart or damage control)</li>
 		<li>Is there a difference between warm and cold reset?
-			<ul>
+			<ol>
 				<li>How does the devices behave if only the software is reset?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Memories
-			<ul>
+			<ol>
 				<li>Are setup, hold and access times correct for external memories?</li>
 				<li>Is memory integrity checked?</li>
 				<li>Is memory integrity guaranteed?</li>
 				<li>Is unused program memory/ROM spaces filled with traps or restart instructions?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Bounds checks
-			<ul>
+			<ol>
 				<li>Is user/sensor input bounds checked?</li>
 				<li>Are outputs bounds checked?</li>
 				<li>Are calculations bounds checked?</li>
 				<li>Are buffer overflows handled?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Data structures and formats
-			<ul>
+			<ol>
 				<li>Do they include a version number or identifier?</li>
 				<li>Are the bounds of variable size formats well-defined?</li>
-			</ul>
+			</ol>
 		</li>
 		<li>Software characteristics
-			<ul>
+			<ol>
 				<li>CPU utilization</li>
 				<li>Memory utilization</li>
 				<li>Interrupt response time</li>
 				<li>Interrupt execution time</li>
-			</ul>
+			</ol>
 		</li>
-	</ul>
+	</ol>
 </li>
-<li>Documentation
-	<ul>
+<li><h2>Documentation</h2>
+	<ol>
 		<li>Usage instructions</li>
 		<li>Assembly instructions</li>
 		<li>Troubleshooting instructions</li>
@@ -820,7 +850,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<li>Schematic diagrams</li>
 		<li>PCB explanation</li>
 		<li>Design decisions</li>
-	</ul>
+	</ol>
 </li>
 </ol>
 
