@@ -58,10 +58,31 @@ ol > li::before {
 	color: grey;
 }
 
+/* The first level of times shouldn't be numbered, and instead this will be
+   handled by the heading. By doing this, the numbering will "stick" properly
+   when scrolling.*/
+ol > li h2::before {
+	content: counters(section, ".") " ";
+	color: grey;
+}
+
+/* Consequently, the first level of list times, will not have numbering. */
+#content > ol > li::before {
+	content: "";
+}
+
 /* Headers */
 
 li > h2 {
-	display: inline;
+	/* Make the heading for each section sticky */
+	position: sticky;
+	top: 0px;
+	/* Make the heading cover the content in full width */
+	display: block;
+	margin: 0;
+	padding: .5em;
+	background-color: #FDFDFD;
+	width: 100%;
 }
 
 #content > ol > li::before {
