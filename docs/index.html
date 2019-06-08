@@ -95,10 +95,6 @@ li > h2 {
 
 /* Tags */
 
-li {
-	overflow: hidden;
-}
-
 </style>
 </head>
 <body>
@@ -984,6 +980,7 @@ function hideAllWithClass(className) {
 	elements = document.getElementsByClassName(className);
 	for (el of elements) {
 		el.style.height = 0;
+		el.style.overflow = "hidden";
 	}
 }
 
@@ -991,6 +988,7 @@ function showAllWithClass(className) {
 	elements = document.getElementsByClassName(className);
 	for (el of elements) {
 		el.style.height = "inherit";
+		el.style.overflow = "visible";
 	}
 }
 </script>
