@@ -93,6 +93,12 @@ li > h2 {
 	font-size: 1.5em;
 }
 
+/* Tags */
+
+li {
+	overflow: hidden;
+}
+
 </style>
 </head>
 <body>
@@ -104,6 +110,15 @@ li > h2 {
 Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henrikh/pcb-checklist">Feedback and suggestions at Github.</a>
 </p>
 
+<p id="filterControls">
+	<form>
+		<input type="checkbox" id="software-cb" name="t-software" autocomplete="off" checked="true"/>
+		<label for="software-cb">Software</label>
+		<input type="checkbox" id="RF-cb" name="t-RF" autocomplete="off" checked="true"/>
+		<label for="RF-cb"><abbr title="Radio frequency">RF</abbr></label>
+	</form>
+</p>
+
 <ol>
 <li><h2>Process</h2>
 	<ol>
@@ -112,10 +127,10 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>For system</li>
 				<li>For schematics</li>
 				<li>For <abbr title="Printed circuit board">PCBs</abbr></li>
-				<li>For software</li>
+				<li class="t-software">For software</li>
 			</ol>
 		</li>
-		<li>Is source version control used? (Git, SVN etc.) #software</li>
+		<li>Is source version control used? (Git, SVN etc.)</li>
 		<li>Is offsite backup used?</li>
 		<li>Are design decisions documented?
 			<ol>
@@ -839,7 +854,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 	</li>
 	</ol>
 </li>
-<li><h2>Software</h2>
+<li class="t-software"><h2>Software</h2>
 	<ol>
 		<li>Is automated software testing used? #software #procedure</li>
 		<li>Is there a style guide?</li>
@@ -951,12 +966,32 @@ document.getElementById("content").addEventListener("click", function(event) {
 			explanation_div.style.display = "none";
 			event.target.innerText = event.target.innerText.replace("[-]","[+]");
 		}
+	} else if (event.target.tagName == "INPUT") {
+		if(event.target.checked) {
+			showAllWithClass(event.target.name);
+		} else {
+			hideAllWithClass(event.target.name);
+		}
 	}
 });
 
 for (el of document.querySelectorAll("a")) {
 	el.target = "_blank";
 	el.rel = "noopener noreferrer";
+}
+
+function hideAllWithClass(className) {
+	elements = document.getElementsByClassName(className);
+	for (el of elements) {
+		el.style.height = 0;
+	}
+}
+
+function showAllWithClass(className) {
+	elements = document.getElementsByClassName(className);
+	for (el of elements) {
+		el.style.height = "inherit";
+	}
 }
 </script>
 
