@@ -112,6 +112,8 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 		<label for="software-cb">Software</label>
 		<input type="checkbox" id="RF-cb" name="t-RF" autocomplete="off" checked="true"/>
 		<label for="RF-cb"><abbr title="Radio frequency">RF</abbr></label>
+		<input type="checkbox" id="FPGA-cb" name="t-FPGA" autocomplete="off" checked="true"/>
+		<label for="FPGA-cb"><abbr title="Field-programmable gate array">FPGA</abbr></label>
 	</form>
 </p>
 
@@ -139,7 +141,6 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 	<ol>
 		<li>What should have <abbr title="Electrostatic discharge">ESD</abbr> protection? #ESD</li>
 		<li>Are amplifier circuits stable?</li>
-		<li>Are oscillators stable?</li>
 		<li>Is there a simulation/simulator of the system or subsystems?</li>
 		<li>Has the design or subsystems of it been simulated?</li>
 		<li>What kind of interfaces and connections are necessary?
@@ -204,7 +205,7 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>How is power provided?</li>
 				<li>Is power-up well-defined?
 					<div>Some subsystems might need to be unpowered before other subsystems are powered, e.g. <abbr title="Light-emitting diode">LED</abbr> drivers unpowered until the software has booted.<br />
-					Certain components such as complex microprocessors, <abbr title="Field programmable gate array">FPGAs</abbr> and other complex <abbr title="Integrated circuit">ICs</abbr> need special power sequencing to operate correctly; consult datasheets for details.</li>
+					Certain components such as complex microprocessors, <abbr title="Field programmable gate array">FPGAs</abbr> and other complex <abbr title="Integrated circuit">ICs</abbr> need special power sequencing to operate correctly; consult datasheets for details.</div></li>
 				<li>Is power-down well-defined?</li>
 				<li>Should any subsystems be isolated?</li>
 				<li>Which voltage levels are needed?</li>
@@ -217,6 +218,15 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 				<li>Is the ground connection made first in hot-plugging connectors?</li>
 				<li>Is a separate earth necessary?</li>
 				<li>Will under or over voltage protection be needed?</li>
+			</ol>
+		</li>
+		<li>Clocks and oscillators
+			<ol>
+				<li>Frequency linewidth/jitter are within tolerances across all environments?
+					<div>Clocks and oscillators are not perfect. Their frequency jitter can vary with temperature and other environmental factors.</div></li>
+				<li>Driving ICs support crystals if crystals are used?</li>
+				<li class="t-FPGA">Input rules for clocks are followed?
+					<div>FPGAs' have multi clock capable input pins, but the features available differ from pin to pin. Source: <a href="https://www.eevblog.com/forum/microcontrollers/choosing-a-clock-input-pin-for-an-fpga/">Choosing a Clock Input Pin for an FPGA</a></div></li>
 			</ol>
 		</li>
 		<li>Testing
@@ -719,6 +729,8 @@ Compiled and edited by Henrik Enggaard Hansen. <a href="https://github.com/henri
 			<li>Are vias avoided under metal-film resistors?</li>
 			<li class="t-RF">Is via fencing of sensitive <abbr title="Radio frequency">RF</abbr> transission lines done with the proper via spacing? (< 1/20 lambda)</li>
 			<li class="t-RF">Is there an option for a shielding can over sensitive circuitry e.g. <abbr title="Radio frequency">RF</abbr>? </li>
+			<li>Are bypass capacitors close to power pins?</li>
+			<li>Is low inductance mounting used for decoupling?</li>
 		</ol>
 	</li>
 	<li>Copper pour
