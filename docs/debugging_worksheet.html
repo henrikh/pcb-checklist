@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Debugging worksheet</title>
+<link rel="apple-touch-icon" sizes="180x180" href="/dw/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/dw/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/dw/favicon-16x16.png">
+<link rel="manifest" href="/dw/site.webmanifest">
+<style>
+#content {
+    max-width: 720px;
+    box-shadow: 5px 5px #DDD;
+    background-color: #FDFDFD;
+    color: #222;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2em;
+    padding-top: .7em;
+}
+
+body {
+    background-color: #EEEEEF;
+}
+
+textarea {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    border:1px solid #DDD;
+    padding: .5em;
+    resize: vertical;
+}
+
+#issue-name-field {
+    font-size: 2em;
+    width: 100%;
+    border:1px solid #DDD;
+    padding: .5em;
+}
+
+/* Explanation boxes */
+
+li > div {
+    max-width: 500px;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    padding-top: calc(.5em - 1px);
+    padding-bottom: calc(.5em - 1px);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+li > button {
+    border: none;
+    background-color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    color: #ababa8;
+}
+
+li > button {
+    cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+<div id="content">
+<h1>Debugging worksheet</h1>
+<input placeholder="Issue name" id="issue-name-field">
+<h2>Observations</h2>
+<textarea autofocus wrap="soft" id="observations-field"></textarea>
+<h2>Hypotheses</h2>
+<textarea wrap="soft" id="hypotheses-field"></textarea>
+<h2>To be tried / experiments</h2>
+<textarea wrap="soft" id="experiments-field"></textarea>
+<h2>Rejected hypotheses</h2>
+<textarea wrap="soft" id="rejected-field"></textarea>
+</div>
+<script>
+in_field = document.getElementById("issue-name-field");
+title_el = document.getElementsByTagName("title")[0];
+
+document.getElementById("content").addEventListener("input", function(event){
+    title_el.innerText = in_field.value + " - Debugging worksheet";
+});
+</script>
+</body>
+</html>
