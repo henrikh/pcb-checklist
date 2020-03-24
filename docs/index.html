@@ -250,6 +250,7 @@ Other tools: <a href="/debugging_worksheet.html">Debugging worksheet</a>
 						<li>Current monitoring?</li>
 						<li>Temperature monitoring?</li>
 						<li>Peripheral device behavior</li>
+						<li>Board revision or version <div>The board revision or version can be made software readable using either GPIO or shift register pins tied to ground or supply.  An ADC can also be used to read a voltage divider. This can also be used for board specific functionality. <a href="https://www.designnews.com/electronics-test/5-tips-versioning-embedded-systems/93647737161546">5 Tips for Versioning Embedded Systems - Design News</a></div></li>
 					</ol>
 				</li>
 				<li>Is there event/data logging?
@@ -907,6 +908,14 @@ Other tools: <a href="/debugging_worksheet.html">Debugging worksheet</a>
 				<li>Memory utilization</li>
 				<li>Interrupt response time</li>
 				<li>Interrupt execution time</li>
+			</ol>
+		</li>
+		<li>Versioning
+			<ol>
+				<li>How is software versioned? <diV>Semantic versioning is an excellent choice. References: <a href="https://semver.org/">Semantic Versioning</a></diV></li>
+				<li>Is version defined in a header? <div>
+					By defining the version in a header it is easy to update and consistently written.
+				</div></li>
 			</ol>
 		</li>
 	</ol>
